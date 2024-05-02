@@ -12,7 +12,7 @@ Check out the two projects most of this  configuration sources itself from!
 
 ## Rebasing
 
-- First you must rebase to the unsigned image, to get the keys installed:
+- First you must rebase to the unsigned image to get the keys installed:
   
   ``` rpm-ostree rebase ostree-unverified-registry:ghcr.io/quelln/sodium:latest && systemctl reboot```
 

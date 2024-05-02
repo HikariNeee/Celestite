@@ -20,3 +20,4 @@ rpm-ostree override remove firefox firefox-langpacks qemu-user gamemode virtualb
 
 #disabling some unneeeded services
 systemctl disable NetworkManager-wait-online ModemManager audit-rules lvm2-monitor cups.socket cups systemd-homed switcheroo-control auditd
+

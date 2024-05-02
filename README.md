@@ -20,8 +20,8 @@ Check out the two projects most of this  configuration sources itself from!
 
   ``` rpm-ostree rebase ostree-image-signed:docker://ghcr.io/quelln/sodium:latest && systemctl reboot```
 
-  ## Post Install
-  It is recommended that you use these parameters
+## Post Install
+It is recommended that you use these parameters
   
   ```rpm-ostree kargs --append="tsc=reliable,cryptomgr.notests intel_iommu=igfx_off kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 rw"```
  
@@ -43,5 +43,5 @@ Check out the two projects most of this  configuration sources itself from!
   
   `rw` => Mount filesystem as read-write.
 
-   These parameters are taken from the [Clear Linux](https://www.clearlinux.org/) project.
-   You can read more about these parameters from [here](https://www.kernel.org/doc/html/v6.1/admin-guide/kernel-parameters.html).
+These parameters are taken from the [Clear Linux](https://www.clearlinux.org/) project.
+You can read more about these parameters from [here](https://www.kernel.org/doc/html/v6.1/admin-guide/kernel-parameters.html).

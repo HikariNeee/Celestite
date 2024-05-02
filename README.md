@@ -1,7 +1,7 @@
 # Sodium 
 ===============
 
-A semi-custom build of Fedora Kinoite trying to get the perfect balance with performance and security.
+A semi-custom build of Fedora Kinoite trying to gain the perfect balance between performance and security.
 
 Generated using the [UBlue Image Template](https://github.com/ublue-os/image-template).
 

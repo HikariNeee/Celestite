@@ -14,7 +14,9 @@ RELEASE="$(rpm -E %fedora)"
 
 # this installs a package from fedora repos
 rpm-ostree install emacs broadcom-wl iwd fish libva-intel-driver distrobox
-rpm-ostree override remove firefox firefox-langpacks qemu-user gamemode virtualbox-guest-additions kwrite kwrited krfb krfb-libs kmousetool plasma-browser-integration   
+rpm-ostree override remove firefox firefox-langpacks qemu-user gamemode virtualbox-guest-additions \ 
+                    kwrite kwrited krfb krfb-libs kmousetool plasma-browser-integration   \
+                    mariadb mariadb-server
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 

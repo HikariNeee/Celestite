@@ -68,6 +68,27 @@ RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-os
     rpm-ostree cleanup -m && \
     ostree container commit
 
+# kernel parameters from the clear linux kernel
+RUN rpm-ostree kargs --append="modprobe.blacklist=nouveau \
+    zram.enabled=0 \
+    zswap.enabled=1 \
+    zswap.max_pool_percent=25 \
+    zswap.compressor=lz4 \
+    zswap.zpool=zsmalloc \
+    tsc=reliable \
+    mitigations=off \
+    quiet \
+    cryptomgr.notests \
+    intel_iommu=igfx_off \
+    kvm-intel.nested=1 \
+    no_timer_check \
+    noreplace-smp \
+    page_alloc.shuffle=1 \
+    rcupdate.rcu_expedited=1 \
+    rw" && \
+    rpm-ostree cleanup -m && \
+    ostree container commit
+
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit

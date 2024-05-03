@@ -16,11 +16,15 @@ Check out the two projects most of this  configuration sources itself from!
 
 - First you must rebase to the unsigned image to get the keys installed:
   
-  ``` rpm-ostree rebase ostree-unverified-registry:ghcr.io/quelln/sodium:latest && systemctl reboot```
+  ```rpm-ostree rebase ostree-unverified-registry:ghcr.io/quelln/sodium:latest```
+
+  ```systemctl reboot```
 
 - Now you can rebase to the signed image:
 
-  ``` rpm-ostree rebase ostree-image-signed:docker://ghcr.io/quelln/sodium:latest && systemctl reboot```
+  ```rpm-ostree rebase ostree-image-signed:docker://ghcr.io/quelln/sodium:latest```
+
+  ```systemctl reboot```
 
 ## Post Install
 It is recommended that you use these parameters

@@ -2,7 +2,7 @@
 > [!WARNING]  
 > This is still in development and is not fit for daily use.
 > 
-A semi-custom build of Fedora Kinoite trying to gain the perfect balance between performance and security.
+A custom build of Fedora with the Cinnamon desktop trying to gain the perfect balance between performance and security.
 
 Generated using the [UBlue Image Template](https://github.com/ublue-os/image-template).
 
@@ -16,13 +16,13 @@ Check out the two projects most of this  configuration sources itself from!
 
 - First you must rebase to the unsigned image to get the keys installed:
   
-  ```rpm-ostree rebase ostree-unverified-registry:ghcr.io/quelln/sodium:latest```
+  ```rpm-ostree rebase ostree-unverified-registry:ghcr.io/quelln/rolls:latest```
 
   ```systemctl reboot```
 
 - Now you can rebase to the signed image:
 
-  ```rpm-ostree rebase ostree-image-signed:docker://ghcr.io/quelln/sodium:latest```
+  ```rpm-ostree rebase ostree-image-signed:docker://ghcr.io/quelln/rolls:latest```
 
   ```systemctl reboot```
 

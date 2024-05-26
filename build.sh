@@ -4,19 +4,10 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
+# installing cinnamon
+rpm-ostree install NetworkManager-bluetooth NetworkManager-iodine-gnome NetworkManager-l2tp-gnome NetworkManager-libreswan-gnome NetworkManager-openconnect-gnome NetworkManager-wifi network-manager-applet NetworkManager-wwan NetworkManager 
+rpm-ostree install abrt-desktop abrt-java-connector blueman cinnamon cinnamon-control-center lightdm cinnamon-screensaver eom ffmpegthumbnailer firewall-config gnome-screenshot gnome-terminal gnome-disk-utility 
+rpm-ostree install gvfs-archive gvfs-gphoto2 gvfs-mtp gvfs-smb imsettings-gsettings initial-setup-gui metacity nemo-image-converter nemo-preview nemo-python nm-connection-editor paper-icon-theme nemo pipewire pipewire-alsa pipewire-pulseaudio
+rpm-ostree install redshift-gtk slick-greeter slick-greeter-cinnamon xdg-user-dirs-gtk xed xfburn xreader flatpak 
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
-rpm-ostree install emacs fish libva-intel-driver distrobox
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
-
-#disabling some unneeeded services
-#systemctl disable  ModemManager audit-rules lvm2-monitor cups.socket cups systemd-homed switcheroo-control auditd
 

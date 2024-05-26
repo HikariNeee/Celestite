@@ -9,6 +9,7 @@ Generated using the [UBlue Image Template](https://github.com/ublue-os/image-tem
 Check out the two projects most of this  configuration sources itself from!
 [secureblue](https://github.com/secureblue/secureblue), [bluevanilla](https://github.com/aguslr/bluevanilla).
 
+Thanks to the [UBlue Cinnamon project](https://github.com/ublue-os/cinnamon) for providing the workarounds.
 
 # Installation
 

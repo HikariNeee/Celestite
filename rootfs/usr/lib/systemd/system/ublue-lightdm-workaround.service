@@ -1,0 +1,16 @@
+# LightDM install from a container is currently bugged.
+# https://github.com/coreos/rpm-ostree/issues/4369
+# https://github.com/fedora-silverblue/issue-tracker/issues/452
+# This workaround creates the user before LightDM runs.
+
+[Unit]
+Description=Work around broken LightDM install
+Before=lightdm.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/ublue-lightdm-workaround.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

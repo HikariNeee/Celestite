@@ -1,0 +1,14 @@
+[Unit]
+Description=Add Flatpak Firefox 
+ConditionPathExists=!/var/lib/flatpak/.flathub-repo-initialized
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/flatpak install --system org.moilla.firefox
+ExecStartPost=/usr/bin/touch /var/lib/flatpak/.flathub-repo-initialized
+
+[Install]
+WantedBy=multi-user.target

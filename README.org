@@ -1,0 +1,102 @@
+* Rolls
+  :PROPERTIES:
+  :CUSTOM_ID: rolls
+  :END:
+
+#+begin_quote
+  [!WARNING]\\
+  This is still in development and is not fit for daily use.
+#+end_quote
+
+A sweet build of Fedora with the Cinnamon desktop.
+
+Generated using the [[https://github.com/ublue-os/image-template][UBlue
+Image Template]].
+
+Check out the two projects most of this configuration sources itself
+from! [[https://github.com/secureblue/secureblue][secureblue]],
+[[https://github.com/aguslr/bluevanilla][bluevanilla]].
+
+Thanks to the [[https://github.com/ublue-os/cinnamon][UBlue Cinnamon
+project]] for providing the workarounds.
+
+* Installation
+  :PROPERTIES:
+  :CUSTOM_ID: installation
+  :END:
+** Rebasing
+   :PROPERTIES:
+   :CUSTOM_ID: rebasing
+   :END:
+- To begin, you'll need to switch to the unsigned image to install the
+  necessary keys. You can do this by running the following command:
+  #+BEGIN_SRC sh
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls:latest
+  #+END_SRC
+
+- And then rebooting your system with:
+  #+BEGIN_SRC sh
+  systemctl reboot
+  #+END_SRC
+
+- Afterwards, you can switch to the signed image:
+  #+BEGIN_SRC sh
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarinee/rolls:latest
+  #+END_SRC
+
+- And finally, reboot your system again with:
+  #+BEGIN_SRC sh
+  systemctl reboot
+  #+END_SRC
+
+** ISO
+   :PROPERTIES:
+   :CUSTOM_ID: iso
+   :END:
+- An ISO image can be built using the following command for offline installation.
+  #+BEGIN_SRC sh
+  sudo podman run --rm --privileged \
+    --volume .:/build-container-installer/build \
+    --security-opt label=disable --pull=newer \
+    ghcr.io/jasonn3/build-container-installer:latest \
+    IMAGE_REPO="ghcr.io/hikarineee" \
+    IMAGE_NAME="rolls" \
+    IMAGE_TAG="latest" \
+    VARIANT="base"
+  #+END_SRC
+
+** Post Install
+   :PROPERTIES:
+   :CUSTOM_ID: post-install
+   :END:
+Optionally, you can set up some custom kernel parameters using:
+#+BEGIN_SRC sh
+rpm-ostree kargs --append="tsc=reliable,cryptomgr.notests intel_iommu=igfx_off kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 rw"
+#+END_SRC
+
+These parameters are taken from the [[https://www.clearlinux.org/][Clear
+Linux]] project. You can read more about these parameters from
+[[https://www.kernel.org/doc/html/v6.1/admin-guide/kernel-parameters.html][here]].
+
+* Acknowledgements
+  :PROPERTIES:
+  :CUSTOM_ID: acknowledgements
+  :END:
+Generated using the [[https://github.com/ublue-os/image-template][UBlue
+Image Template]].
+
+Check out the two projects most of this configuration sources itself
+from! [[https://github.com/secureblue/secureblue][secureblue]],
+[[https://github.com/aguslr/bluevanilla][bluevanilla]].
+
+Thanks to [[https://github.com/vinceliuice][vinceliuice]] for creating the [[https://github.com/vinceliuice/Lavanda-gtk-theme][Lavanda GTK Theme]].
+
+Thanks to the [[https://github.com/ublue-os/cinnamon][UBlue Cinnamon
+project]] for providing the workaround for lightDM.
+
+* LICENSE
+  :PROPERTIES:
+  :CUSTOM_ID: license
+  :END:
+This project is licensed under the GPLv2 License - read the
+[[file:LICENSE]] file for details.

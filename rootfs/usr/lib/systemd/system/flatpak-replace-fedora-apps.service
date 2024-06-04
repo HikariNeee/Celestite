@@ -9,7 +9,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/sh -c 'flatpak --system install --noninteractive --reinstall flathub $(flatpak --system list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1)'
+ExecStart=/bin/sh -c 'flatpak --system install --noninteractive --reinstall  flathub $(flatpak --system list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1)'
 ExecStartPost=-/usr/bin/flatpak --system uninstall --noninteractive org.fedoraproject.Platform
 ExecStartPost=-/usr/bin/flatpak --system remote-delete --force fedora
 ExecStartPost=-/usr/bin/flatpak --system remote-delete --force fedora-testing

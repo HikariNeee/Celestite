@@ -1,0 +1,15 @@
+[Unit]
+Description=Add cinnamon theme
+After=graphical.target
+Wants=graphical.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c gsettings set org.cinnamon.desktop.interface gtk-theme 'Lavanda-Sea-Dark'"
+ExecStartPost=/bin/sh -c "gsettings set org.cinnamon.theme name 'Lavanda-Sea-Dark'"
+ExecStartPost=/bin/sh -c "gsettings set org.x.apps.portal color-scheme 'prefer-dark'"
+ExecStartPost=/bin/sh -c "gsettings set org.cinnamon.desktop.background picture-uri 'file:///usr/share/backgrounds/default_back.jpg'"
+
+[Install]
+WantedBy=multi-user.target

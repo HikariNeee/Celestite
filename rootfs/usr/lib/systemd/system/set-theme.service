@@ -1,7 +1,6 @@
 [Unit]
 Description=Add cinnamon theme
-After=graphical.target
-Wants=graphical.target
+After=lightdm.service
 
 [Service]
 Type=oneshot

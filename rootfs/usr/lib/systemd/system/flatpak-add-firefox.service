@@ -1,6 +1,5 @@
 [Unit]
 Description=Add Flatpak Firefox 
-ConditionPathExists=!/var/lib/flatpak/.flathub-repo-initialized
 After=network-online.target
 Wants=network-online.target
 

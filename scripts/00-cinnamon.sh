@@ -16,6 +16,6 @@ imsettings-gsettings initial-setup-gui metacity nemo-image-converter \
 nemo-preview nemo-python nm-connection-editor paper-icon-theme nemo \
 pipewire pipewire-alsa pipewire-pulseaudio touchegg redshift-gtk \
 slick-greeter slick-greeter-cinnamon xdg-user-dirs-gtk xed xfburn xreader \
-flatpak fish
+flatpak fish python3-pip
 
 

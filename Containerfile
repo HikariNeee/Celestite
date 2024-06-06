@@ -10,14 +10,14 @@ COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/00-cinnamon.sh && \
     /tmp/01-delete-packages.sh && \
+    pip install --prefix=/usr yafti && \
+    rm -rf /tmp/* /var/* && \
     systemctl enable lightdm.service && \
     systemctl enable ublue-lightdm-workaround && \ 
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable flatpak-replace-fedora-apps.service && \
-    systemctl enable flatpak-add-firefox.service && \
     systemctl enable flatpak-cleanup.timer && \
     systemctl enable touchegg.service && \ 
-    systemctl enable set-theme.service && \	
     fc-cache -fv && \
     ostree container commit && \
     mkdir -p /var/tmp && \

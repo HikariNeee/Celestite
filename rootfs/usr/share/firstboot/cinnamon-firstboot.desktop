@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Cinnamon First Boot Setup
+Comment=Sets up Ublue Desktop Correctly On FirstBoot
+Exec=/usr/bin/yafti /usr/share/firstboot/yafti.yml
+Icon=org.gnome.Terminal
+Type=Application
+Categories=Utility;System;
+Name[en_US]=startup

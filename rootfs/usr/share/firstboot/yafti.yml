@@ -1,0 +1,46 @@
+title: Rolls First Boot
+properties:
+  mode: "run-on-change"
+
+actions:
+  pre:
+
+  - run: /usr/share/firstboot/set-theme.sh
+
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome to Rolls!"
+      icon: "/path/to/icon"
+      description: "Pick some applications."
+
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Package Installation
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      groups:
+        Core:
+          description: Core
+          default: true
+          packages:
+          - Calculator: org.gnome.Calculator
+          - Floorp (Web Browser): one.ablaze.floorp
+          - Celluloid Video Player: io.github.celluloid_player.Celluloid
+          - Flatseal Permissions Manager: com.github.tchx84.Flatseal
+        Office:
+          description: Office apps.
+          packages:
+          - Libreoffice: org.libreoffice.LibreOffice
+          - OnlyOffice:  org.onlyoffice.desktopeditors
+          - Photo Organizer: org.gnome.Shotwell
+
+
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "All done, enjoy your new system!"
+      icon: "/path/to/icon"
+      description:  Go and have a look around.

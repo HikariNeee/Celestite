@@ -7,6 +7,15 @@ COPY rootfs/ /
 COPY scripts/00-cinnamon.sh /tmp/00-cinnamon.sh
 COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
 
+# test schemas
+RUN mkdir -p /tmp/bluefin-schema-test && \
+    cp /usr/share/glib-2.0/schemas/zz0-rolls.gschema.override /tmp/bluefin-schema-test/ && \
+    echo "Running error test for bluefin gschema override. Aborting if failed." && \ 
+    glib-compile-schemas --strict /tmp/bluefin-schema-test && \
+    echo "Compiling gschema to include bluefin setting overrides" && \
+    glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
+
+
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/00-cinnamon.sh && \
     /tmp/01-delete-packages.sh && \

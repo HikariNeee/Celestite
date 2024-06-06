@@ -2,10 +2,12 @@ title: Rolls First Boot
 properties:
   mode: "run-on-change"
 
+
 actions:
   pre:
 
   - run: /usr/share/firstboot/set-theme.sh
+
 
 screens:
   first-screen:

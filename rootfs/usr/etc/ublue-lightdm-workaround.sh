@@ -12,4 +12,4 @@ getent passwd lightdm >/dev/null || useradd -g lightdm -M -d /var/lib/lightdm -s
 echo "added lightdm user"
 systemctl set-default graphical.target
 "set graphical.target as default."
-echo "background=/usr/share/backgrounds/default_back.jpg" | tee -a /etc/lightdm/slick-greeter.conf
+echo "background=/usr/share/backgrounds/default_back.png" | tee -a /etc/lightdm/slick-greeter.conf

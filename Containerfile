@@ -18,6 +18,7 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable flatpak-cleanup.timer && \
     systemctl enable touchegg.service && \ 
     systemctl enable set-theme.service && \	
+    fc-cache -fv && \
     ostree container commit && \
     mkdir -p /var/tmp && \
     chmod -R 1777 /var/tmp

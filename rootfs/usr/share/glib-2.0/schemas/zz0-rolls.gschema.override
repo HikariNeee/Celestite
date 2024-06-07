@@ -1,5 +1,18 @@
 [org.cinnamon.desktop.interface]
 gtk-theme='Lavanda-Sea-Dark'
+font-name='Clear Sans 11'
+
+[org.cinnamon.desktop.screensaver]
+font-date='Clear Sans 24'
+font-message='Clear Sans 14'
+font-time='Clear Sans 64'
+
+[org.cinnamon.desktop.wm.preferences]
+titlebar-font='Clear Sans Bold 10'
+
+[org.x.editor.preferences.editor]
+editor-font='Intel One Mono 12'
+
 [org.cinnamon.theme]
 name='Lavanda-Sea-Dark'
 [org.x.apps.portal]

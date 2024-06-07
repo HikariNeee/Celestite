@@ -11,5 +11,7 @@ echo "created lightdm group"
 getent passwd lightdm >/dev/null || useradd -g lightdm -M -d /var/lib/lightdm -s /sbin/nologin -r lightdm
 echo "added lightdm user"
 systemctl set-default graphical.target
-"set graphical.target as default."
 echo "background=/usr/share/backgrounds/default_back.png" | tee -a /etc/lightdm/slick-greeter.conf
+echo "theme-name='Lavanda-Sea-Dark'" | tee -a /etc/lightdm/slick-greeter.conf
+echo "font-name='Clear Sans 12'" | tee -a /etc/lightdm/slick-greeter.conf
+

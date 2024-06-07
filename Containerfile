@@ -24,7 +24,6 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable lightdm.service && \
     systemctl enable ublue-lightdm-workaround && \ 
     systemctl enable flatpak-add-flathub-repo.service && \
-    systemctl enable flatpak-replace-fedora-apps.service && \
     systemctl enable flatpak-cleanup.timer && \
     systemctl enable touchegg.service && \ 
     fc-cache -fv && \

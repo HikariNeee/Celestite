@@ -15,7 +15,17 @@ editor-font='Intel One Mono 12'
 
 [org.cinnamon.theme]
 name='Lavanda-Sea-Dark'
+
 [org.x.apps.portal]
 color-scheme='prefer-dark'
+
 [org.cinnamon.desktop.background]
 picture-uri='file:///usr/share/backgrounds/default_back.png'
+
+
+[org.gnome.desktop.interface]
+monospace-font-name='Intel One Mono 12'
+document-font-name='Clear Sans 11'
+
+[org.nemo.desktop]
+font='Clear Sans 10'

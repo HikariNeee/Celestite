@@ -22,7 +22,7 @@ RUN mkdir -p /var/lib/alternatives && \
     pip install --prefix=/usr yafti && \
     rm -rf /tmp/* /var/* && \
     systemctl enable lightdm.service && \
-    systemctl enable ublue-lightdm-workaround && \ 
+    systemctl enable ublue-lightdm-workaround.service && \ 
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable touchegg.service && \ 
     fc-cache -fv && \

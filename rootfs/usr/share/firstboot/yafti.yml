@@ -30,13 +30,17 @@ screens:
           packages:
           - Calculator: org.gnome.Calculator
           - Floorp (Web Browser): one.ablaze.floorp
-          - Celluloid Video Player: io.github.celluloid_player.Celluloid
+          - Clapper: com.github.rafostar.Clapper
           - Flatseal Permissions Manager: com.github.tchx84.Flatseal
         Office:
           description: Office apps.
+          default: false
           packages:
           - Libreoffice: org.libreoffice.LibreOffice
           - OnlyOffice:  org.onlyoffice.desktopeditors
+        Misc:
+          default: false
+          packages:
           - Photo Organizer: org.gnome.Shotwell
 
 

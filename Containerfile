@@ -25,6 +25,7 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable ublue-lightdm-workaround.service && \ 
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable touchegg.service && \ 
+    systemctl enable --global flatpak-user-flathub-repo.service && \
     fc-cache -fv && \
     ostree container commit && \
     mkdir -p /var/tmp && \

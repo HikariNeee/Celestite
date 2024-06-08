@@ -9,16 +9,19 @@
 #+end_quote
 
 A sweet build of Fedora with the Cinnamon desktop.
+* Features
+  :PROPERTIES:
+  :CUSTOM_ID: installation
+  :END:
+- Uses Cinnamon as the default DE.
+- Tries to strike the perfect balance between security and performance.
+- Stable by default.
 
-Generated using the [[https://github.com/ublue-os/image-template][UBlue
-Image Template]].
-
-Check out the two projects most of this configuration sources itself
-from! [[https://github.com/secureblue/secureblue][secureblue]],
-[[https://github.com/aguslr/bluevanilla][bluevanilla]].
-
-Thanks to the [[https://github.com/ublue-os/cinnamon][UBlue Cinnamon
-project]] for providing the workarounds.
+Though, it must be noted that the distribution tries to be as bleeding edge
+as possible while being as stable as possible. 
+A lot of changes that have been approved for next versions of Fedora 
+may be enabled here. You can read the "Enabled Features" section to see
+what is enabled.
 
 * Installation
   :PROPERTIES:
@@ -62,7 +65,8 @@ project]] for providing the workarounds.
     IMAGE_REPO="ghcr.io/hikarineee" \
     IMAGE_NAME="rolls" \
     IMAGE_TAG="latest" \
-    VARIANT="base"
+    VARIANT="base" \
+    VERSION="40"
   #+END_SRC
 
 ** Post Install
@@ -77,6 +81,17 @@ rpm-ostree kargs --append="tsc=reliable cryptomgr.notests intel_iommu=igfx_off k
 These parameters are taken from the [[https://www.clearlinux.org/][Clear
 Linux]] project. You can read more about these parameters from
 [[https://www.kernel.org/doc/html/v6.1/admin-guide/kernel-parameters.html][here]].
+
+It is also recommended to install homebrew.
+#+BEGIN_SRC sh
+just brew
+#+END_SRC
+
+* Enabled features
+  :PROPERTIES:
+  :CUSTOM_ID: enabled
+  :END:
+- None as of yet.
 
 * Acknowledgements
   :PROPERTIES:

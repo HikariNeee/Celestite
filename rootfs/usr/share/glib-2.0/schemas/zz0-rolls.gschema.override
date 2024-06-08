@@ -12,6 +12,9 @@ font-date='Clear Sans 24'
 font-message='Clear Sans 14'
 font-time='Clear Sans 64'
 
+[org/cinnamon]
+app-menu-icon-name='Rolls-Logo'
+
 [org.cinnamon.desktop.wm.preferences]
 titlebar-font='Clear Sans Bold 10'
 

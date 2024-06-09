@@ -26,8 +26,10 @@ screens:
         condition:
           run: which fish
         description: |
-          Would you like to set the default shell to FISH or keep using bash? (If you don't know what either of these are, choose bash.)
+          Would you like to set the default shell to FISH or keep using bash? If you want keep using bash, press confirm and after the installer finishes,
+          do `mv ~/.bashrc.bak ~/.bashrc`
         actions:
+          - run: cp ~/.bashrc ~/.bashrc.bak
           - run: echo "if [[ $- == *i* ]] && [[ -f /usr/bin/fish ]]; then exec /usr/bin/fish "$@" fi" >> ~/.bashrc
  
   can-we-modify-your-flatpaks:
@@ -36,12 +38,19 @@ screens:
       title: Welcome traveler
       condition:
         run: flatpak remotes --system | grep fedora
+
       description: |
-        This tool modifies your flatpaks and flatpak sources. If you do not want to do this exit the installer.
+        This tool modifies your flatpaks and flatpak sources as well as do some theme related tasks. 
+        If you do not want to do this exit the installer.
         For new users just do it (tm)
       actions:
         - run: flatpak remote-delete fedora --force
         - run: flatpak remove --system --noninteractive --all
+        - run: mkdir "${HOME}/.config/gtk-4.0"
+        - run: ln -sf /usr/share/themes/Lavanda-Sea-Light/gtk-4.0/gtk.css "${HOME}/.config/gtk-4.0/gtk.css"
+        - run: ln -sf /usr/share/themes/Lavanda-Sea-light/gtk-4.0/assets  "${HOME}/.config/gtk-4.0/assets"
+        - run: ln -sf /usr/share/themes/Lavanda-Sea-Light/gtk-4.0/gtk-dark.css  "${HOME}/.config/gtk-4.0/gtk-dark.css"
+
   applications:
     source: yafti.screen.package
     values:

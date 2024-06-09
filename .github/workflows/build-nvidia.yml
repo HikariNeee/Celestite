@@ -1,20 +1,14 @@
 ---
-name: rolls
+name: rolls-nvidia
 on:
-  pull_request:
-    branches:
-      - main
-  schedule:
-    - cron: '05 10 * * *'  # 10:05am UTC everyday
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**/README.md'
+  workflow_run:
+    workflows: ["rolls"]
+    types:
+      - completed
   workflow_dispatch:
 
 env:
-  MY_IMAGE_NAME: "rolls"  # the name of the image produced by this build, matches repo names
+  MY_IMAGE_NAME: "rolls-nvidia"  # the name of the image produced by this build, matches repo names
   MY_IMAGE_DESC: "My Customized Universal Blue Image"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
 
@@ -73,6 +67,10 @@ jobs:
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
 
+
+      - name: Maximize build space
+        uses: ublue-os/remove-unwanted-software@v7
+
       # Build metadata
       - name: Image Metadata
         uses: docker/metadata-action@v5
@@ -92,7 +90,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            ./Containerfile
+            ./Containerfile.nvidia
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.MY_IMAGE_NAME }}
@@ -148,6 +146,4 @@ jobs:
           TAGS: ${{ steps.push.outputs.digest }}
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
-
-
 

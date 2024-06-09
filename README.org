@@ -68,6 +68,8 @@ what is enabled.
     VARIANT="base" \
     VERSION="40"
   #+END_SRC
+Replace "rolls" with "rolls-nvidia" and "base" with "base-nvidia" if trying to generate an ISO for the nvidia
+variant.
 
 ** Post Install
    :PROPERTIES:

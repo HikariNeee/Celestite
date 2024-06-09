@@ -2,10 +2,10 @@
 panel-height=['1:34']
 
 [org.cinnamon.desktop.interface]
-gtk-theme='Lavanda-Sea-Dark'
+gtk-theme='Lavanda-Sea-Light'
 font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
-icon-theme='Colloid-dark'
+icon-theme='Colloid-light'
 
 [org.cinnamon.desktop.screensaver]
 font-date='Clear Sans 24'
@@ -13,8 +13,8 @@ font-message='Clear Sans 14'
 font-time='Clear Sans 64'
 
 [org.cinnamon]
-app-menu-icon-name='Rolls-Logo'
-
+#app-menu-icon-name='Rolls-Logo'
+app-menu-label=' '
 [org.cinnamon.desktop.wm.preferences]
 titlebar-font='Clear Sans Bold 10'
 
@@ -22,10 +22,10 @@ titlebar-font='Clear Sans Bold 10'
 editor-font='Intel One Mono 12'
 
 [org.cinnamon.theme]
-name='Lavanda-Sea-Dark'
+name='Lavanda-Sea-Light'
 
 [org.x.apps.portal]
-color-scheme='prefer-dark'
+color-scheme='prefer-light'
 
 [org.cinnamon.desktop.background]
 picture-uri='file:///usr/share/backgrounds/default_back.png'
@@ -34,7 +34,7 @@ picture-uri='file:///usr/share/backgrounds/default_back.png'
 monospace-font-name='Intel One Mono 12'
 document-font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
-icon-theme='Colloid-dark'
+icon-theme='Colloid-light'
 
 [org.nemo.desktop]
 font='Clear Sans 10'
@@ -42,6 +42,7 @@ font='Clear Sans 10'
 [x.dm.slick-greeter]
 background='/usr/share/backgrounds/default_back.png'
 font-name='Clear Sans 11'
-theme-name='Lavanda-Sea-Dark'
-logo='/usr/share/icons/Rolls-Logo/stock/48x48/Rolls-48.png'
+theme-name='Lavanda-Sea-Light'
+#logo='/usr/share/icons/Rolls-Logo/stock/48x48/Rolls-48.png'
 cursor-theme-name='Bibata-Modern-Ice'
+icon-theme-name='Colloid-light'

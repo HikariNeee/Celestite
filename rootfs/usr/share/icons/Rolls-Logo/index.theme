@@ -1,0 +1,38 @@
+[Icon Theme]
+Name=Rolls-Logo
+Comment=The Logo for the Rolls Fedora Build
+Inherits=hicolor
+Example=Rolls-48
+
+# Comment
+# KDE specific settings
+DisplayDepth=32
+LinkOverlay=link_overlay
+LockOverlay=lock_overlay
+ZipOverlay=zip_overlay
+DesktopDefault=48
+DesktopSizes=16,22,32,48,64,72,96,128
+ToolbarDefault=22
+ToolbarSizes=16,22,32,48
+MainToolbarDefault=22
+MainToolbarSizes=16,22,32,48
+SmallDefault=16
+SmallSizes=16
+PanelDefault=32
+PanelSizes=16,22,32,48,64,72,96,128
+
+# List all directories
+Directories=stock/48x48,stock/scalable
+
+# specify the context, size, and type of each directory
+[stock/48x48]
+Context=stock
+Size=48
+Type=Fixed
+
+[stock/scalable]
+Size=32
+Context=stock
+Minsize=16
+Maxsize=128
+Type=scalable

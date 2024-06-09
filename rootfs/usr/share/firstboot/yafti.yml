@@ -1,4 +1,4 @@
-title: Rolls First Boot
+title: Rolls Setup
 properties:
   mode: "run-on-change"
 
@@ -16,8 +16,20 @@ screens:
       title: "Welcome to Rolls!"
       icon: "/path/to/icon"
       description: |
-        Pick some applications.
+        Welcome to Rolls Kyoto! The sweetest distro around! Let's get you started by picking some applications!
 
+
+  set-default-shell:
+      source: yafti.screen.consent
+      values:
+        title: Welcome!
+        condition:
+          run: which fish
+        description: |
+          Would you like to set the default shell to FISH or keep using bash? (If you don't know what either of these are, choose bash.)
+        actions:
+          - run: echo "if [[ $- == *i* ]] && [[ -f /usr/bin/fish ]]; then exec /usr/bin/fish "$@" fi" >> ~/.bashrc
+ 
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
     values:
@@ -57,6 +69,7 @@ screens:
           - Thunderbird Email: org.mozilla.Thunderbird
         Misc:
           default: false
+          description: Misc items including a Photo Organiser
           packages:
            - Photo Organizer: org.gnome.Shotwell
         Other Web Browsers:

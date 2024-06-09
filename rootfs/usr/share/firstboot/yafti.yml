@@ -14,11 +14,22 @@ screens:
     source: yafti.screen.title
     values:
       title: "Welcome to Rolls!"
-      icon: "rootfs/usr/share/icons/Rolls-Logo/stock/scalable/Rolls-Logo.svg"
+      icon: "/path/to/icon"
       description: |
         Pick some applications.
 
-
+  can-we-modify-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Welcome traveler
+      condition:
+        run: flatpak remotes --system | grep fedora
+      description: |
+        This tool modifies your flatpaks and flatpak sources. If you do not want to do this exit the installer.
+        For new users just do it (tm)
+      actions:
+        - run: flatpak remote-delete fedora --force
+        - run: flatpak remove --system --noninteractive --all
   applications:
     source: yafti.screen.package
     values:
@@ -47,14 +58,28 @@ screens:
         Misc:
           default: false
           packages:
-          - Photo Organizer: org.gnome.Shotwell
-
+           - Photo Organizer: org.gnome.Shotwell
+        Other Web Browsers:
+          description: Additional browsers to complement Firefox
+          default: false
+          packages:
+          - Brave: com.brave.Browser
+          - Google Chrome: com.google.Chrome
+          - Microsoft Edge: com.microsoft.Edge
+          - Opera: com.opera.Opera
+          - Vivaldi: com.vivaldi.Vivaldi
+        Communication:
+          default: false
+          description: Tools to communicate and collaborate
+          packages:
+          - Discord: com.discordapp.Discord
+          - Slack: com.slack.Slack
 
   final-screen:
     source: yafti.screen.title
     values:
       title: "All done, enjoy your new system!"
-      icon: "rootfs/usr/share/icons/Rolls-Logo/stock/scalable/Rolls-Logo.svg
+      icon: "/path/to/icon"
       description: |
         Go and have a look around.
 

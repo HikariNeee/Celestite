@@ -1,4 +1,4 @@
-title: Rolls First Boot
+title: Rolls Setup
 properties:
   mode: "run-on-change"
 

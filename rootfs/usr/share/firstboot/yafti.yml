@@ -15,7 +15,9 @@ screens:
     values:
       title: "Welcome to Rolls!"
       icon: "rootfs/usr/share/icons/Rolls-Logo/stock/scalable/Rolls-Logo.svg"
-      description: "Pick some applications."
+      description: |
+        Pick some applications.
+
 
   applications:
     source: yafti.screen.package
@@ -48,5 +50,7 @@ screens:
     source: yafti.screen.title
     values:
       title: "All done, enjoy your new system!"
-      icon: "rootfs/usr/share/icons/Rolls-Logo/stock/scalable/Rolls-Logo.svg"
-      description:  Go and have a look around.
+      icon: "rootfs/usr/share/icons/Rolls-Logo/stock/scalable/Rolls-Logo.svg
+      description: |
+        Go and have a look around.
+

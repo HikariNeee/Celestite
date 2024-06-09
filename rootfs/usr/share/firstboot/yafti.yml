@@ -1,0 +1,98 @@
+title: Rolls First Boot
+properties:
+  mode: "run-on-change"
+
+
+actions:
+  pre:
+
+  - run: /usr/share/firstboot/set-theme.sh
+
+
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome to Rolls!"
+      icon: "/path/to/icon"
+      description: |
+        Welcome to Rolls Kyoto! The sweetest distro around! Let's get you started by picking some applications!
+
+
+  set-default-shell:
+      source: yafti.screen.consent
+      values:
+        title: Welcome!
+        condition:
+          run: which fish
+        description: |
+          Would you like to set the default shell to FISH or keep using bash? (If you don't know what either of these are, choose bash.)
+        actions:
+          - run: echo "if [[ $- == *i* ]] && [[ -f /usr/bin/fish ]]; then exec /usr/bin/fish "$@" fi" >> ~/.bashrc
+ 
+  can-we-modify-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Welcome traveler
+      condition:
+        run: flatpak remotes --system | grep fedora
+      description: |
+        This tool modifies your flatpaks and flatpak sources. If you do not want to do this exit the installer.
+        For new users just do it (tm)
+      actions:
+        - run: flatpak remote-delete fedora --force
+        - run: flatpak remove --system --noninteractive --all
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Package Installation
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      package_manager_defaults:
+        user: false
+        system: true
+      groups:
+        Core:
+          description: Core
+          default: true
+          packages:
+          - Calculator: org.gnome.Calculator
+          - Floorp (Web Browser): one.ablaze.floorp
+          - Clapper: com.github.rafostar.Clapper
+          - Flatseal Permissions Manager: com.github.tchx84.Flatseal
+        Office:
+          description: Office apps.
+          default: false
+          packages:
+          - Libreoffice: org.libreoffice.LibreOffice
+          - OnlyOffice:  org.onlyoffice.desktopeditors
+          - Thunderbird Email: org.mozilla.Thunderbird
+        Misc:
+          default: false
+          description: Misc items including a Photo Organiser
+          packages:
+           - Photo Organizer: org.gnome.Shotwell
+        Other Web Browsers:
+          description: Additional browsers to complement Firefox
+          default: false
+          packages:
+          - Brave: com.brave.Browser
+          - Google Chrome: com.google.Chrome
+          - Microsoft Edge: com.microsoft.Edge
+          - Opera: com.opera.Opera
+          - Vivaldi: com.vivaldi.Vivaldi
+        Communication:
+          default: false
+          description: Tools to communicate and collaborate
+          packages:
+          - Discord: com.discordapp.Discord
+          - Slack: com.slack.Slack
+
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "All done, enjoy your new system!"
+      icon: "/path/to/icon"
+      description: |
+        Go and have a look around.
+

@@ -15,7 +15,8 @@ screens:
     values:
       title: "Welcome to Rolls!"
       icon: "/path/to/icon"
-      description: "Pick some applications."
+      description: |
+        Pick some applications.
 
   applications:
     source: yafti.screen.package
@@ -49,4 +50,5 @@ screens:
     values:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
-      description:  Go and have a look around.
+      description: |
+        Go and have a look around.

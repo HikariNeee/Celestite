@@ -6,7 +6,6 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as rolls
 COPY rootfs/ /
 COPY scripts/00-cinnamon.sh /tmp/00-cinnamon.sh
 COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
-COPY scripts/03-install-cachy-kernel.sh /tmp/03-install-cachy-kernel.sh
 
 # test schemas
 RUN mkdir -p /tmp/test && \
@@ -18,11 +17,10 @@ RUN mkdir -p /tmp/test && \
  
 RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /var/lib/alternatives && \
-    curl -Lo /etc/yum.repos.d/copr_cachy.repo https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-${SOURCE_TAG}/bieszczaders-kernel-cachyos-fedora-${SOURCE_TAG}.repo && \
+    curl -Lo /etc/yum.repos.d/copr_fsync.repo https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${SOURCE_TAG}/sentry-kernel-fsync-fedora-${SOURCE_TAG}.repo && \
     curl -Lo /etc/yum.repos.d/system76_scheduler.repo https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-${SOURCE_TAG}/kylegospo-system76-scheduler-fedora-${SOURCE_TAG}.repo && \
     /tmp/00-cinnamon.sh &&  \
     /tmp/01-delete-packages.sh && \
-    /tmp/03-install-cachy-kernel.sh && \
     pip install --prefix=/usr yafti && \
     rm -rf /tmp/* /var/* && \
     systemctl enable lightdm.service && \

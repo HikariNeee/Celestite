@@ -3,6 +3,13 @@
 set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
+echo '[charm]
+name=Charm
+baseurl=https://repo.charm.sh/yum/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
+
 
 # installing cinnamon
 rpm-ostree install NetworkManager-bluetooth NetworkManager-iodine-gnome \
@@ -17,14 +24,7 @@ nemo-preview nemo-python nm-connection-editor paper-icon-theme nemo \
 pipewire pipewire-alsa pipewire-pulseaudio touchegg redshift-gtk \
 slick-greeter slick-greeter-cinnamon xdg-user-dirs-gtk xed xfburn xreader \
 flatpak python3-pip appstream-compose at-spi2-atk at-spi2-core system76-scheduler \
-fastfetch power-profiles-daemon gnome-software 
+fastfetch power-profiles-daemon gnome-software glow 
 
 
-echo '[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
-
-rpm-ostree install glow
+rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra

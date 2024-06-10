@@ -3,10 +3,9 @@
   :CUSTOM_ID: rolls
   :END:
 
-#+begin_quote
-  [!WARNING]\\
-  This is still in development and is not fit for daily use.
-#+end_quote
+
+#+ATTR_ORG: :align center
+[[./screenshots/screenie.png]]
 
 A sweet build of Fedora with the Cinnamon desktop.
 * Features
@@ -106,7 +105,7 @@ Check out the two projects most of this configuration sources itself
 from! [[https://github.com/secureblue/secureblue][secureblue]],
 [[https://github.com/aguslr/bluevanilla][bluevanilla]].
 
-Thanks to [[https://github.com/vinceliuice][vinceliuice]] for creating the [[https://github.com/vinceliuice/Lavanda-gtk-theme][Lavanda GTK Theme]].
+Thanks to [[https://github.com/vinceliuice][vinceliuice]] for creating the [[https://github.com/vinceliuice/Lavanda-gtk-theme][Lavanda GTK Theme]] as well the icon pack.
 
 Thanks to the [[https://github.com/ublue-os/cinnamon][UBlue Cinnamon
 project]] for providing the workaround for lightDM.

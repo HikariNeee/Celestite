@@ -1,6 +1,7 @@
 title: Rolls Setup
 properties:
-  mode: "run-on-change"
+  mode: "run-once"
+  save_state: "always"
 
 
 actions:
@@ -17,20 +18,6 @@ screens:
       icon: "/path/to/icon"
       description: |
         Welcome to Rolls Kyoto! The sweetest distro around! Let's get you started by picking some applications!
-
-
-  set-default-shell:
-      source: yafti.screen.consent
-      values:
-        title: Welcome!
-        condition:
-          run: which fish
-        description: |
-          Would you like to set the default shell to FISH or keep using bash? If you want keep using bash, press confirm and after the installer finishes,
-          do `mv ~/.bashrc.bak ~/.bashrc`
-        actions:
-          - run: cp ~/.bashrc ~/.bashrc.bak
-          - run: echo "if [[ $- == *i* ]] && [[ -f /usr/bin/fish ]]; then exec /usr/bin/fish "$@" fi" >> ~/.bashrc
  
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
@@ -103,5 +90,5 @@ screens:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
       description: |
-        Go and have a look around.
+        Please log out and log back in for the applications to show up.
 

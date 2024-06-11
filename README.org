@@ -43,7 +43,7 @@ what is enabled.
 
 - Afterwards, you can switch to the signed image:
   #+BEGIN_SRC sh
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarinee/rolls:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/rolls:latest
   #+END_SRC
 
 - And finally, reboot your system again with:

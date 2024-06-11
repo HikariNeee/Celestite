@@ -25,7 +25,6 @@ RUN rpm-ostree cliwrap install-to-root / && \
     /tmp/01-delete-packages.sh && \
     /tmp/02-mesa.sh && \
     pip install --prefix=/usr yafti && \
-    rm -rf /tmp/* /var/* && \
     systemctl enable lightdm.service && \
     systemctl enable ublue-lightdm-workaround.service && \ 
     systemctl enable touchegg.service && \ 
@@ -35,6 +34,7 @@ RUN rpm-ostree cliwrap install-to-root / && \
     fc-cache -fv && \
     sed -i '/^PRETTY_NAME/s/.*/Rolls Kyoto/' /usr/lib/os-release && \
     /tmp/initramfs.sh && \
+    rm -rf /tmp/* /var/* && \
     ostree container commit && \
     mkdir -p /var/tmp && \
     chmod -R 1777 /var/tmp

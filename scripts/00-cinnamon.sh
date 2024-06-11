@@ -26,5 +26,5 @@ slick-greeter slick-greeter-cinnamon xdg-user-dirs-gtk xed xfburn xreader \
 flatpak python3-pip appstream-compose at-spi2-atk at-spi2-core system76-scheduler \
 fastfetch power-profiles-daemon gnome-software glow 
 
-
-rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+rpm-ostree override replace --experimental --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-uki-virt  kernel-devel-matched
+rpm-ostree install kernel-headers

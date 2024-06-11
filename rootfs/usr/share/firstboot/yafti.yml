@@ -3,13 +3,6 @@ properties:
   mode: "run-once"
   save_state: "always"
 
-
-actions:
-  pre:
-
-  - run: /usr/share/firstboot/set-theme.sh
-
-
 screens:
   first-screen:
     source: yafti.screen.title
@@ -18,7 +11,7 @@ screens:
       icon: "/path/to/icon"
       description: |
         Welcome to Rolls Kyoto! The sweetest distro around! Let's get you started by picking some applications!
- 
+
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
     values:
@@ -27,16 +20,13 @@ screens:
         run: flatpak remotes --system | grep fedora
 
       description: |
-        This tool modifies your flatpaks and flatpak sources as well as do some theme related tasks. 
+        This tool modifies your flatpaks and flatpak sources as well as do some theme related tasks.
         If you do not want to do this exit the installer.
         For new users just do it (tm)
       actions:
         - run: flatpak remote-delete fedora --force
         - run: flatpak remove --system --noninteractive --all
-        - run: mkdir "${HOME}/.config/gtk-4.0"
-        - run: ln -sf /usr/share/themes/Lavanda-Sea-Light/gtk-4.0/gtk.css "${HOME}/.config/gtk-4.0/gtk.css"
-        - run: ln -sf /usr/share/themes/Lavanda-Sea-light/gtk-4.0/assets  "${HOME}/.config/gtk-4.0/assets"
-        - run: ln -sf /usr/share/themes/Lavanda-Sea-Light/gtk-4.0/gtk-dark.css  "${HOME}/.config/gtk-4.0/gtk-dark.css"
+        - run: /usr/share/firstboot/set-theme.sh
 
   applications:
     source: yafti.screen.package
@@ -56,6 +46,8 @@ screens:
           - Floorp (Web Browser): one.ablaze.floorp
           - Clapper: com.github.rafostar.Clapper
           - Flatseal Permissions Manager: com.github.tchx84.Flatseal
+          - Flatsweep: io.github.giantpinkrobots.flatsweep
+          - Peazip: io.github.peazip.PeaZip
         Office:
           description: Office apps.
           default: false
@@ -89,6 +81,8 @@ screens:
     values:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
+      links:
+        - "Reboot now":
+            run: systemctl reboot
       description: |
-        Please log out and log back in for the applications to show up.
-
+        Please reboot to solidify your changes, and welcome to Rolls!

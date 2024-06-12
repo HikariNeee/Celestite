@@ -15,7 +15,7 @@ screens:
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
     values:
-      title: Welcome traveler
+      title: Can we modify your flatpaks?
       condition:
         run: flatpak remotes --system | grep fedora
 
@@ -81,8 +81,5 @@ screens:
     values:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
-      links:
-        - "Reboot now":
-            run: systemctl reboot
       description: |
         Please reboot to solidify your changes, and welcome to Rolls!

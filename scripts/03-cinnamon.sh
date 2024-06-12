@@ -15,4 +15,4 @@ pipewire pipewire-alsa pipewire-pulseaudio touchegg redshift-gtk \
 slick-greeter slick-greeter-cinnamon xdg-user-dirs-gtk xed xfburn xreader \
 flatpak python3-pip appstream-compose at-spi2-atk at-spi2-core system76-scheduler \
 fastfetch power-profiles-daemon gnome-software glow appstream-devel \
-appstream-compose-devel appstream gcc cpp
+appstream-compose-devel appstream gcc cpp webapp-manager

@@ -23,6 +23,7 @@ RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /var/lib/alternatives && \
     curl -Lo /etc/yum.repos.d/copr_fsync.repo  https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${SOURCE_TAG}/sentry-kernel-fsync-fedora-${SOURCE_TAG}.repo && \ 
     curl -Lo /etc/yum.repos.d/copr_sys76.repo https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-${SOURCE_TAG}/kylegospo-system76-scheduler-fedora-${SOURCE_TAG}.repo  && \
+    curl -Lo /etc/yum.repos.d/copr_webapp.repo https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-${SOURCE_TAG}/kylegospo-webapp-manager-fedora-${SOURCE_TAG}.repo && \
     /tmp/00-base.sh &&  \
     /tmp/01-delete-packages.sh && \
     /tmp/02-misc.sh && \

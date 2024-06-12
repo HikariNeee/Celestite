@@ -129,4 +129,5 @@ rpm-ostree override replace \
 
 rpm-ostree override replace --experimental --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-uki-virt  kernel-devel-matched kernel-devel
 
-rpm-ostree install kernel-headers
+rpm-ostree install kernel-headers intel-media-driver
+

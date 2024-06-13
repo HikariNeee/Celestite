@@ -19,7 +19,7 @@ app-menu-label=' '
 titlebar-font='Clear Sans Bold 10'
 
 [org.x.editor.preferences.editor]
-editor-font='Intel One Mono 12'
+editor-font='IntoneMono NF 12'
 
 [org.cinnamon.theme]
 name='Lavanda-Sea-Light'
@@ -31,7 +31,7 @@ color-scheme='prefer-light'
 picture-uri='file:///usr/share/backgrounds/default_back.png'
 
 [org.gnome.desktop.interface]
-monospace-font-name='Intel One Mono 12'
+monospace-font-name='IntoneMono NF 12'
 document-font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
 icon-theme='Colloid-light'

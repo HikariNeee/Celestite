@@ -7,14 +7,15 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as rolls
 
 COPY rootfs/ /
 COPY build_files/initramfs.sh /tmp/initramfs.sh
-COPY scripts/00-cinnamon.sh /tmp/00-cinnamon.sh
+COPY scripts/00-base.sh /tmp/00-base.sh
 COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
-
+COPY scripts/02-misc.sh /tmp/02-misc.sh
+COPY scripts/03-cinnamon.sh /tmp/03-cinnamon.sh
 # test schemas
 RUN mkdir -p /tmp/test && \
     cp /usr/share/glib-2.0/schemas/zz0-rolls.gschema.override /tmp/test/ && \
     echo "Running error test for bluefin gschema override. Aborting if failed." && \ 
-    glib-compile-schemas --strict /tmp/test && \
+    glib-compile-schemas --strict /tmp/test/ && \
     echo "Compiling gschema to include bluefin setting overrides" && \
     glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
  
@@ -22,8 +23,11 @@ RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /var/lib/alternatives && \
     curl -Lo /etc/yum.repos.d/copr_fsync.repo  https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${SOURCE_TAG}/sentry-kernel-fsync-fedora-${SOURCE_TAG}.repo && \ 
     curl -Lo /etc/yum.repos.d/copr_sys76.repo https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-${SOURCE_TAG}/kylegospo-system76-scheduler-fedora-${SOURCE_TAG}.repo  && \
-    /tmp/00-cinnamon.sh &&  \
+    curl -Lo /etc/yum.repos.d/copr_webapp.repo https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-${SOURCE_TAG}/kylegospo-webapp-manager-fedora-${SOURCE_TAG}.repo && \
+    /tmp/00-base.sh &&  \
     /tmp/01-delete-packages.sh && \
+    /tmp/02-misc.sh && \
+    /tmp/03-cinnamon.sh && \
     pip install --prefix=/usr yafti && \
     systemctl enable lightdm.service && \
     systemctl enable ublue-lightdm-workaround.service && \ 

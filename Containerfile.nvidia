@@ -5,8 +5,11 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as rolls-nvi
 
 COPY rootfs/ /
 COPY build_files/initramfs.sh /tmp/build/initramfs.sh
-COPY scripts/00-cinnamon.sh /tmp/00-cinnamon.sh
+COPY scripts/00-base.sh /tmp/00-base.sh
 COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
+COPY scripts/02-misc.sh /tmp/02-misc.sh
+COPY scripts/03-cinnamon.sh /tmp/03-cinnamon.sh
+
 COPY --from=ghcr.io/ublue-os/akmods-nvidia:fsync-40 /rpms /tmp/akmods-rpms
 
 # test schemas
@@ -22,10 +25,13 @@ RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /var/lib/alternatives && \
     curl -Lo /etc/yum.repos.d/copr_fsync.repo  https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${SOURCE_TAG}/sentry-kernel-fsync-fedora-${SOURCE_TAG}.repo && \ 
     curl -Lo /etc/yum.repos.d/copr_sys76.repo https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-${SOURCE_TAG}/kylegospo-system76-scheduler-fedora-${SOURCE_TAG}.repo  && \
+    curl -Lo /etc/yum.repos.d/copr_webapp.repo https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-${SOURCE_TAG}/kylegospo-webapp-manager-fedora-${SOURCE_TAG}.repo && \
     curl -Lo /tmp/nvidia-install.sh https://raw.githubusercontent.com/ublue-os/hwe/main/nvidia-install.sh && \
     chmod +x /tmp/nvidia-install.sh && \
-    /tmp/00-cinnamon.sh && \
+    /tmp/00-base.sh && \
     /tmp/01-delete-packages.sh && \
+    /tmp/02-misc.sh && \
+    /tmp/03-cinnamon.sh && \
     FEDORA_MAJOR_VERSION=40 IMAGE_NAME="main" RPMFUSION_MIRROR="" /tmp/nvidia-install.sh && \
     pip install --prefix=/usr yafti && \
     systemctl enable lightdm.service && \

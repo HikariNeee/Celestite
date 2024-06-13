@@ -6,7 +6,7 @@ ln -sf /usr/share/themes/Lavanda-Sea-Light/gtk-4.0/gtk-dark.css  "${HOME}/.confi
 
 
 echo "setting lavanda as flatpak style"
-/usr/share/firstboot/stylepak  install-user
-/usr/share/firstboot/stylepak install-system
+/usr/share/firstboot/stylepak  install-user Lavanda-Sea-Light
+/usr/share/firstboot/stylepak install-system Lavanda-Sea-Light
 
 

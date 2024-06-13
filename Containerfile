@@ -11,6 +11,7 @@ COPY scripts/00-base.sh /tmp/00-base.sh
 COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
 COPY scripts/02-misc.sh /tmp/02-misc.sh
 COPY scripts/03-cinnamon.sh /tmp/03-cinnamon.sh
+COPY scripts/04-enable-services.sh /tmp/04-enable-services.sh
 # test schemas
 RUN mkdir -p /tmp/test && \
     cp /usr/share/glib-2.0/schemas/zz0-rolls.gschema.override /tmp/test/ && \
@@ -28,11 +29,8 @@ RUN rpm-ostree cliwrap install-to-root / && \
     /tmp/01-delete-packages.sh && \
     /tmp/02-misc.sh && \
     /tmp/03-cinnamon.sh && \
+    /tmp/04-enable-services.sh && \
     pip install --prefix=/usr yafti && \
-    systemctl enable lightdm.service && \
-    systemctl enable ublue-lightdm-workaround.service && \ 
-    systemctl enable touchegg.service && \ 
-    systemctl enable com.system76.Scheduler.service && \   
     mkdir -p /usr/etc/flatpak/remotes.d && \
     curl -Lo /usr/etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo && \
     fc-cache -fv && \

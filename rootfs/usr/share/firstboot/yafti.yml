@@ -48,6 +48,11 @@ screens:
           - Flatseal Permissions Manager: com.github.tchx84.Flatseal
           - Flatsweep: io.github.giantpinkrobots.flatsweep
           - Peazip: io.github.peazip.PeaZip
+          - Bottles: com.usebottles.bottles
+          - Document Viewer: org.gnome.Evince
+          - Mission Center: io.missioncenter.MissionCenter
+          - Disk Usage Analayzer: org.gnome.baobab
+
         Office:
           description: Office apps.
           default: false
@@ -55,20 +60,31 @@ screens:
           - Libreoffice: org.libreoffice.LibreOffice
           - OnlyOffice:  org.onlyoffice.desktopeditors
           - Thunderbird Email: org.mozilla.Thunderbird
+
         Misc:
           default: false
-          description: Misc items including a Photo Organiser
+          description: Misc items including a Photo Organizer and a backup tool.
           packages:
            - Photo Organizer: org.gnome.Shotwell
+           - Pika Backup: org.gnome.World.PikaBackup
+           - BoxBuddy: io.github.dvlv.boxbuddyrs
+
         Other Web Browsers:
-          description: Additional browsers to complement Firefox
+          description: Additional browsers to complement Floorp, or if you just want base Firefox.
           default: false
           packages:
           - Brave: com.brave.Browser
-          - Google Chrome: com.google.Chrome
-          - Microsoft Edge: com.microsoft.Edge
-          - Opera: com.opera.Opera
           - Vivaldi: com.vivaldi.Vivaldi
+          - Firefox: org.mozilla.firefox
+
+        Gaming:
+          description: In case you need some relaxation after a hard day.
+          default: false
+          packages:
+          - Steam: com.valvesoftware.Steam
+          - Lutris: net.lutris.Lutris
+          - Heroic Games Launcher: com.heroicgameslauncher.hgl
+
         Communication:
           default: false
           description: Tools to communicate and collaborate
@@ -76,10 +92,24 @@ screens:
           - Discord: com.discordapp.Discord
           - Slack: com.slack.Slack
 
+        Art:
+          default: false
+          description: Packages/Tools helpful for artists
+          packages:
+          - Krita: org.kde.krita
+          - GIMP: org.gimp.GIMP
+
+        Video:
+          default: false
+          description: Tools for capturing and editing videos.
+          packages:
+          - OBS Studio: com.obsproject.Studio
+          - Kdenlive: org.kde.kdenlive
+
   final-screen:
     source: yafti.screen.title
     values:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
       description: |
-        Please reboot to solidify your changes, and welcome to Rolls!
+        Please reboot to solidify your changes, and welcome to Rolls! Additional applications can be installed using the GNOME software app.

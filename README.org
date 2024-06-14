@@ -107,6 +107,21 @@ Linux]] project. You can read more about these parameters from
   :END:
 - None as of yet.
 
+* Switching the theme
+If you want to switch the theme, you can do so using the Themes application.
+However, some apps, notably Software will show up with the previous theme, to fix this.
+
+#+BEGIN_SRC sh
+mkdir "${HOME}/.config/gtk-4.0"
+ln -sf /usr/share/themes/Lavanda-Sea-Dark/gtk-4.0/gtk.css "${HOME}/.config/gtk-4.0/gtk.css"
+ln -sf /usr/share/themes/Lavanda-Sea-Dark/assets  "${HOME}/.config/gtk-4.0/assets"
+ln -sf /usr/share/themes/Lavanda-Sea-Dark/gtk-4.0/gtk-dark.css  "${HOME}/.config/gtk-4.0/gtk-dark.css"
+#+END_SRC
+
+Replace Lavanda-Sea-Dark with theme you use as well as make sure the links 
+(notably, assets) point to actual folders in the theme you use.
+
+
 * Acknowledgements
   :PROPERTIES:
   :CUSTOM_ID: acknowledgements
@@ -120,6 +135,7 @@ from! [[https://github.com/secureblue/secureblue][secureblue]],
 [[https://github.com/aguslr/bluevanilla][bluevanilla]].
 
 Thanks to [[https://github.com/vinceliuice][vinceliuice]] for creating the [[https://github.com/vinceliuice/Lavanda-gtk-theme][Lavanda GTK Theme]] as well the icon pack.
+Thanks to [[https://github.com/EliverLara/otis][EliverLara]] for creating the [[https://github.com/EliverLara/otis][Otis]] theme.
 
 Thanks to the [[https://github.com/ublue-os/cinnamon][UBlue Cinnamon
 project]] for providing the workaround for lightDM.

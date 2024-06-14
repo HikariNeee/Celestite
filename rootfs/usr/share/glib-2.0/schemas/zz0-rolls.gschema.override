@@ -2,10 +2,10 @@
 panel-height=['1:34']
 
 [org.cinnamon.desktop.interface]
-gtk-theme='Lavanda-Sea-Light'
+gtk-theme='Otis-forest-standard-buttons'
 font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
-icon-theme='Colloid-light'
+icon-theme='Colloid-dark'
 
 [org.cinnamon.desktop.screensaver]
 font-date='Clear Sans 24'
@@ -22,27 +22,27 @@ titlebar-font='Clear Sans Bold 10'
 editor-font='IntoneMono NF 12'
 
 [org.cinnamon.theme]
-name='Lavanda-Sea-Light'
+name='Otis-forest-standard-buttons'
 
 [org.x.apps.portal]
-color-scheme='prefer-light'
+color-scheme='prefer-dark'
 
 [org.cinnamon.desktop.background]
-picture-uri='file:///usr/share/backgrounds/default_back.png'
+picture-uri='file:///usr/share/backgrounds/default_back_dark.png'
 
 [org.gnome.desktop.interface]
 monospace-font-name='IntoneMono NF 12'
 document-font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
-icon-theme='Colloid-light'
+icon-theme='Colloid-dark'
 
 [org.nemo.desktop]
 font='Clear Sans 10'
 
 [x.dm.slick-greeter]
-background='/usr/share/backgrounds/default_back.png'
+background='/usr/share/backgrounds/default_back_dark.png'
 font-name='Clear Sans 11'
-theme-name='Lavanda-Sea-Light'
+theme-name='Otis-forest-standard-buttons'
 logo='/usr/share/icons/Rolls-Logo/stock/48x48/Rolls-48.png'
 cursor-theme-name='Bibata-Modern-Ice'
-icon-theme-name='Colloid-light'
+icon-theme-name='Colloid-dark'

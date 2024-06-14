@@ -4,9 +4,3 @@ ln -sf /usr/share/themes/Otis-forest-standard-buttons/gtk-4.0/gtk.css "${HOME}/.
 ln -sf /usr/share/themes/Otis-forest-standard-buttons/assets  "${HOME}/.config/gtk-4.0/assets"
 ln -sf /usr/share/themes/Otis-forest-standard-buttons/gtk-4.0/gtk-dark.css  "${HOME}/.config/gtk-4.0/gtk-dark.css"
 
-
-echo "setting lavanda as flatpak style"
-/usr/share/firstboot/stylepak  install-user Otis-forest-standard-buttons
-/usr/share/firstboot/stylepak install-system Otis-forest-standard-buttons
-
-

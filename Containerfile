@@ -12,6 +12,7 @@ COPY scripts/01-delete-packages.sh /tmp/01-delete-packages.sh
 COPY scripts/02-misc.sh /tmp/02-misc.sh
 COPY scripts/03-cinnamon.sh /tmp/03-cinnamon.sh
 COPY scripts/04-enable-services.sh /tmp/04-enable-services.sh
+
 # test schemas
 RUN mkdir -p /tmp/test && \
     cp /usr/share/glib-2.0/schemas/zz0-rolls.gschema.override /tmp/test/ && \

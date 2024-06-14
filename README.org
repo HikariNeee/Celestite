@@ -8,13 +8,27 @@
 [[./screenshots/screenie.png]]
 
 A sweet build of Fedora with the Cinnamon desktop.
+
+This image has been designed with being hands-free in mind.
+
 * Features
   :PROPERTIES:
   :CUSTOM_ID: installation
   :END:
 - Uses Cinnamon as the default DE.
-- Tries to strike the perfect balance between security and performance.
-- Stable by default.
+- Uses kernel-fsync.
+- Uses System76-Scheduler.
+- NVIDIA Drivers by default (if using the nvidia variant).
+- Homebrew on image.
+- Distrobox for easily spinning up containers if necessary.
+- User friendly.
+- Contains a variety of hardening options.
+- Immutable by default.
+
+
+** Features inherited from UBlue
+- Automatic updates.
+- expansive hardware support.
 
 Though, it must be noted that the distribution tries to be as bleeding edge
 as possible while being as stable as possible. 
@@ -34,6 +48,8 @@ what is enabled.
   necessary keys. You can do this by running the following command:
   #+BEGIN_SRC sh
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls:latest
+  # if you want the nvidia variant
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls-nvidia:latest
   #+END_SRC
 
 - And then rebooting your system with:
@@ -43,7 +59,9 @@ what is enabled.
 
 - Afterwards, you can switch to the signed image:
   #+BEGIN_SRC sh
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarinee/rolls:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/rolls:latest
+  # if you want the nvidia variant
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls-nvidia:latest
   #+END_SRC
 
 - And finally, reboot your system again with:
@@ -67,7 +85,7 @@ what is enabled.
     VARIANT="base" \
     VERSION="40"
   #+END_SRC
-Replace "rolls" with "rolls-nvidia" and "base" with "base-nvidia" if trying to generate an ISO for the nvidia
+Replace "rolls" with "rolls-nvidia" if trying to generate an ISO for the nvidia
 variant.
 
 ** Post Install
@@ -83,11 +101,6 @@ These parameters are taken from the [[https://www.clearlinux.org/][Clear
 Linux]] project. You can read more about these parameters from
 [[https://www.kernel.org/doc/html/v6.1/admin-guide/kernel-parameters.html][here]].
 
-It is also recommended to install homebrew.
-#+BEGIN_SRC sh
-just brew
-#+END_SRC
-
 * Enabled features
   :PROPERTIES:
   :CUSTOM_ID: enabled
@@ -98,6 +111,7 @@ just brew
   :PROPERTIES:
   :CUSTOM_ID: acknowledgements
   :END:
+
 Generated using the [[https://github.com/ublue-os/image-template][UBlue
 Image Template]].
 

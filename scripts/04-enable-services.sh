@@ -7,3 +7,4 @@ systemctl enable touchegg.service
 systemctl enable com.system76.Scheduler.service
 systemctl enable brew-setup.service brew-update.service brew-upgrade.service
 systemctl enable brew-update.timer brew-upgrade.timer
+systemctl enable ublue-update.service ublue-update.timer

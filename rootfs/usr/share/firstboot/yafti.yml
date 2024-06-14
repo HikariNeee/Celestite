@@ -31,7 +31,7 @@ screens:
   applications:
     source: yafti.screen.package
     values:
-      title: Package Installation
+      title: Package Installation.
       show_terminal: true
       package_manager: yafti.plugin.flatpak
       package_manager_defaults:
@@ -39,7 +39,7 @@ screens:
         system: true
       groups:
         Core:
-          description: Core
+          description: Core applications.
           default: true
           packages:
           - Calculator: org.gnome.Calculator
@@ -87,14 +87,14 @@ screens:
 
         Communication:
           default: false
-          description: Tools to communicate and collaborate
+          description: Tools to communicate and collaborate.
           packages:
           - Discord: com.discordapp.Discord
           - Slack: com.slack.Slack
 
         Art:
           default: false
-          description: Packages/Tools helpful for artists
+          description: Packages/Tools helpful for artists.
           packages:
           - Krita: org.kde.krita
           - GIMP: org.gimp.GIMP

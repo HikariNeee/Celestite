@@ -8,4 +8,9 @@ install -c -m 0755 /tmp/starship /usr/bin
 
 echo 'eval "$(starship init bash)"' >> /etc/bashrc
 
-rpm-ostree install btop lshw xdotool wmctrl setools setroubleshoot
+rpm-ostree install btop lshw xdotool wmctrl 
+
+
+echo "Hidden=true" >> /usr/share/applications/fish.desktop
+echo "Hidden=true" >> /usr/share/applications/htop.desktop
+echo "Hidden=true" >> /usr/share/applications/nvtop.desktop

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -ouex pipefail
+sed -i 's/ex-stage/none/' /etc/rpm-ostreed.conf
 
 RELEASE="$(rpm -E %fedora)"
 echo '[charm]
@@ -125,12 +126,14 @@ rpm-ostree override replace \
     --from repo=updates \
         libgcc \
         libgomp \
+        mesa-libEGL \
+        mesa-libgbm \
         || true
 
 rpm-ostree override replace --experimental --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-uki-virt  kernel-devel-matched kernel-devel
 
-rpm-ostree install kernel-headers intel-media-driver distrobox
 
+rpm-ostree install kernel-headers intel-media-driver distrobox 
 # homebrew
 touch /.dockerenv && \
     mkdir -p /var/home && \

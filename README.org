@@ -5,7 +5,7 @@
 
 
 #+ATTR_ORG: :align center
-[[./screenshots/screenie.png]]
+[[./screenshots/screenshot.png]]
 
 A sweet build of Fedora with the Cinnamon desktop.
 

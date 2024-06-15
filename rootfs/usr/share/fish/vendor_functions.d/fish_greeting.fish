@@ -4,8 +4,8 @@
 function fish_greeting
 	if test -d "$HOME"
 		if test ! -e "$HOME"/.local/share/.motdcheck
-			if test -x "/usr/share/firstboot/rolls.md"
-				glow /usr/share/firstboot/rolls.md
+			if test -x "/usr/share/celestite/celestite.md"
+				glow /usr/share/celestite/celestite.md
 			end
 		end
 	end

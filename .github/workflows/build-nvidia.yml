@@ -1,14 +1,14 @@
 ---
-name: rolls-nvidia
+name: celestite-nvidia
 on:
   workflow_run:
-    workflows: ["rolls"]
+    workflows: ["celestite"]
     types:
       - completed
   workflow_dispatch:
 
 env:
-  MY_IMAGE_NAME: "rolls-nvidia"  # the name of the image produced by this build, matches repo names
+  MY_IMAGE_NAME: "celestite-nvidia"  # the name of the image produced by this build, matches repo names
   MY_IMAGE_DESC: "My Customized Universal Blue Image"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
 

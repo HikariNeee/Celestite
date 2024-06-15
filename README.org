@@ -1,6 +1,6 @@
-* Rolls
+* Celestite
   :PROPERTIES:
-  :CUSTOM_ID: rolls
+  :CUSTOM_ID: Celestite
   :END:
 
 
@@ -16,7 +16,6 @@ This image has been designed with being hands-free in mind.
   :CUSTOM_ID: installation
   :END:
 - Uses Cinnamon as the default DE.
-- Uses kernel-fsync.
 - Uses System76-Scheduler.
 - NVIDIA Drivers by default (if using the nvidia variant).
 - Homebrew on image.
@@ -37,7 +36,7 @@ may be enabled here. You can read the "Enabled Features" section to see
 what is enabled.
 
 * Installation
-  :PROPERTIES:
+  :PROPERTIES:	 
   :CUSTOM_ID: installation
   :END:
 ** Rebasing
@@ -47,9 +46,9 @@ what is enabled.
 - To begin, you'll need to switch to the unsigned image to install the
   necessary keys. You can do this by running the following command:
   #+BEGIN_SRC sh
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/celestite:latest
   # if you want the nvidia variant
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls-nvidia:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/celestite-nvidia:latest
   #+END_SRC
 
 - And then rebooting your system with:
@@ -59,9 +58,9 @@ what is enabled.
 
 - Afterwards, you can switch to the signed image:
   #+BEGIN_SRC sh
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/rolls:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/celestite:latest
   # if you want the nvidia variant
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/rolls-nvidia:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/celestite-nvidia:latest
   #+END_SRC
 
 - And finally, reboot your system again with:
@@ -80,12 +79,12 @@ what is enabled.
     --security-opt label=disable --pull=newer \
     ghcr.io/jasonn3/build-container-installer:latest \
     IMAGE_REPO="ghcr.io/hikarineee" \
-    IMAGE_NAME="rolls" \
+    IMAGE_NAME="celestite" \
     IMAGE_TAG="latest" \
     VARIANT="base" \
     VERSION="40"
   #+END_SRC
-Replace "rolls" with "rolls-nvidia" if trying to generate an ISO for the nvidia
+Replace "celestite" with "celestite-nvidia" if trying to generate an ISO for the nvidia
 variant.
 
 ** Post Install

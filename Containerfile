@@ -3,7 +3,7 @@ ARG SOURCE_SUFFIX="-main"
 ARG SOURCE_TAG="40"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
 
-FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as rolls
+FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as celestite
 
 COPY rootfs/ /
 COPY build_files/initramfs.sh /tmp/initramfs.sh
@@ -15,15 +15,14 @@ COPY scripts/04-enable-services.sh /tmp/04-enable-services.sh
 
 # test schemas
 RUN mkdir -p /tmp/test && \
-    cp /usr/share/glib-2.0/schemas/zz0-rolls.gschema.override /tmp/test/ && \
-    echo "Running error test for bluefin gschema override. Aborting if failed." && \ 
+    cp /usr/share/glib-2.0/schemas/zz0-celestite.gschema.override /tmp/test/ && \
+    echo "Running error test for celestite gschema override. Aborting if failed." && \ 
     glib-compile-schemas --strict /tmp/test/ && \
-    echo "Compiling gschema to include bluefin setting overrides" && \
+    echo "Compiling gschema to include celestite setting overrides" && \
     glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
  
 RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /var/lib/alternatives && \
-    curl -Lo /etc/yum.repos.d/copr_fsync.repo  https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${SOURCE_TAG}/sentry-kernel-fsync-fedora-${SOURCE_TAG}.repo && \ 
     curl -Lo /etc/yum.repos.d/copr_sys76.repo https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-${SOURCE_TAG}/kylegospo-system76-scheduler-fedora-${SOURCE_TAG}.repo  && \
     curl -Lo /etc/yum.repos.d/copr_webapp.repo https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-${SOURCE_TAG}/kylegospo-webapp-manager-fedora-${SOURCE_TAG}.repo && \
     curl -Lo /etc/yum.repos.d/copr_bazzite.repo https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-${SOURCE_TAG}/kylegospo-bazzite-fedora-${SOURCE_TAG}.repo && \
@@ -36,7 +35,7 @@ RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /usr/etc/flatpak/remotes.d && \
     curl -Lo /usr/etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo && \
     fc-cache -fv && \
-    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Rolls Kyoto"/' /usr/lib/os-release && \
+    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Celestite Kyoto"/' /usr/lib/os-release && \
     IMAGE_FLAVOR="" /tmp/initramfs.sh && \
     rm -rf /tmp/* /var/* && \
     ostree container commit && \

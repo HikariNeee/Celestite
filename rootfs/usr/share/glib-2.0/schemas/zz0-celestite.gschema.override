@@ -28,7 +28,7 @@ name='Otis-forest-standard-buttons'
 color-scheme='prefer-dark'
 
 [org.cinnamon.desktop.background]
-picture-uri='file:///usr/share/backgrounds/default_back_dark.png'
+picture-uri='file:///usr/share/backgrounds/default_back_dark.jpg'
 
 [org.gnome.desktop.interface]
 monospace-font-name='IntoneMono NF 12'
@@ -40,9 +40,9 @@ icon-theme='Colloid-dark'
 font='Clear Sans 10'
 
 [x.dm.slick-greeter]
-background='/usr/share/backgrounds/default_back_dark.png'
+background='/usr/share/backgrounds/default_back_dark.jpg'
 font-name='Clear Sans 11'
 theme-name='Otis-forest-standard-buttons'
-logo='/usr/share/icons/Rolls-Logo/stock/48x48/Rolls-48.png'
+logo='/usr/share/icons/Celestite-Logo/stock/48x48/Celestite-48.png'
 cursor-theme-name='Bibata-Modern-Ice'
 icon-theme-name='Colloid-dark'

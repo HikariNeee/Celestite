@@ -1,4 +1,4 @@
-title: Rolls Setup
+title: Celestite Setup
 properties:
   mode: "run-once"
   save_state: "always"
@@ -7,10 +7,10 @@ screens:
   first-screen:
     source: yafti.screen.title
     values:
-      title: "Welcome to Rolls!"
+      title: "Welcome to Celestite!"
       icon: "/path/to/icon"
       description: |
-        Welcome to Rolls Kyoto! The sweetest distro around! Let's get you started by picking some applications!
+        Welcome to Celestite Kyoto! The sweetest distro around! Let's get you started by picking some applications!
 
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent
@@ -112,4 +112,4 @@ screens:
       title: "All done, enjoy your new system!"
       icon: "/path/to/icon"
       description: |
-        Please reboot to solidify your changes, and welcome to Rolls! Additional applications can be installed using the GNOME software app.
+        Please reboot to solidify your changes, and welcome to Celestite! Additional applications can be installed using the GNOME software app.

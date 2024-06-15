@@ -128,10 +128,8 @@ rpm-ostree override replace \
         libgomp \
         mesa-libEGL \
         mesa-libgbm \
+        mesa-libEGL.i686 \
         || true
-
-rpm-ostree override replace --experimental --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-uki-virt  kernel-devel-matched kernel-devel
-
 
 rpm-ostree install kernel-headers intel-media-driver distrobox 
 # homebrew

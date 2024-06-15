@@ -1,4 +1,4 @@
-# Welcome to Rolls
+# Welcome to Celestite
 
 | Command | Description |
 | ------- | ----------- |

@@ -7,7 +7,7 @@
 #+ATTR_ORG: :align center
 [[./screenshots/screenshot.png]]
 
-A sweet build of Fedora with the Cinnamon desktop.
+A celestial build of Fedora with the Cinnamon desktop.
 
 This image has been designed with being hands-free in mind.
 

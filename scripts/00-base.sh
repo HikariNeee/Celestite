@@ -129,9 +129,13 @@ rpm-ostree override replace \
         mesa-libEGL \
         mesa-libgbm \
         mesa-libEGL.i686 \
+        NetworkManager-libreswan \
+        nss
+        nss-tools \
         || true
 
-rpm-ostree install kernel-headers intel-media-driver distrobox 
+rpm-ostree install kernel-headers intel-media-driver distrobox
+
 # homebrew
 touch /.dockerenv && \
     mkdir -p /var/home && \

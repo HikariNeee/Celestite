@@ -26,7 +26,7 @@ screens:
       actions:
         - run: flatpak remote-delete fedora --force
         - run: flatpak remove --system --noninteractive --all
-        - run: /usr/share/firstboot/set-theme.sh
+        - run: /usr/share/celestite/set-theme.sh
 
   applications:
     source: yafti.screen.package
@@ -47,7 +47,6 @@ screens:
           - Clapper: com.github.rafostar.Clapper
           - Flatseal Permissions Manager: com.github.tchx84.Flatseal
           - Flatsweep: io.github.giantpinkrobots.flatsweep
-          - Peazip: io.github.peazip.PeaZip
           - Bottles: com.usebottles.bottles
           - Document Viewer: org.gnome.Evince
           - Mission Center: io.missioncenter.MissionCenter

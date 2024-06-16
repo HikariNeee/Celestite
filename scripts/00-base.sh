@@ -128,7 +128,6 @@ rpm-ostree override replace \
         libgomp \
         mesa-libEGL \
         mesa-libgbm \
-        mesa-libEGL.i686 \
         NetworkManager-libreswan \
         nss
         nss-tools \

@@ -129,8 +129,6 @@ rpm-ostree override replace \
         mesa-libEGL \
         mesa-libgbm \
         NetworkManager-libreswan \
-        nss
-        nss-tools \
         || true
 
 rpm-ostree install kernel-headers intel-media-driver distrobox

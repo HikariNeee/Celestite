@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 rpm-ostree install NetworkManager-bluetooth NetworkManager-iodine-gnome \
-NetworkManager-l2tp-gnome NetworkManager-libreswan-gnome \
+NetworkManager-l2tp-gnome \
 NetworkManager-openconnect-gnome NetworkManager-wifi network-manager-applet \
 NetworkManager-wwan NetworkManager blueman \
 cinnamon cinnamon-control-center lightdm cinnamon-screensaver eom \

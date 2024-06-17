@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -ouex pipefail
-sed -i 's/ex-stage/none/' /etc/rpm-ostreed.conf
+sed -i 's/stage/none/' /etc/rpm-ostreed.conf
 
 RELEASE="$(rpm -E %fedora)"
 echo '[charm]

@@ -54,7 +54,7 @@ This image has been designed with being hands-free in mind.
   #+BEGIN_SRC sh
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/celestite:latest
   # if you want the nvidia variant
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/hikarineee/celestite-nvidia:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/hikarineee/celestite-nvidia:latest
   #+END_SRC
 
 - And finally, reboot your system again with:

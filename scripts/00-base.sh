@@ -119,12 +119,9 @@ rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
-        cpp \
-        || true && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=updates \
+        gcc \
         libgcc \
+        cpp \
         libgomp \
         mesa-libEGL \
         mesa-libgbm \

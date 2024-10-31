@@ -128,7 +128,7 @@ rpm-ostree override replace \
         NetworkManager-libreswan \
         || true
 
-rpm-ostree install kernel-headers intel-media-driver distrobox
+rpm-ostree install kernel-headers distrobox
 
 # homebrew
 touch /.dockerenv && \

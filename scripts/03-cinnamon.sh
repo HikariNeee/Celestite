@@ -18,5 +18,4 @@ fastfetch power-profiles-daemon gnome-software glow appstream-devel \
 appstream-compose-devel appstream gcc cpp webapp-manager libappstream-glib \
 file-roller
 
-pip install --prefix=/usr topgrade
-rpm-ostree install ublue-update
+#rpm-ostree install ublue-update topgrade

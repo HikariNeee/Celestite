@@ -46,8 +46,13 @@ jobs:
               BUILD_TAGS+=("${TAG}-${TIMESTAMP}")
           done
 
-          BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
+          if [[ ${{ github.ref_name }} == "testing" ]]; then
+            # Per fedora version
+            BUILD_TAGS+=("testing")
+      
+          else
+             BUILD_TAGS+=("latest")
+          fi
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "

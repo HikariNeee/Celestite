@@ -2,27 +2,27 @@
 panel-height=['1:34']
 
 [org.cinnamon.desktop.interface]
-gtk-theme='Otis-forest-standard-buttons'
+gtk-theme='rose-pine-dawn-gtk'
 font-name='Clear Sans 11'
 cursor-theme='Bibata-Modern-Ice'
 icon-theme='Colloid-dark'
 
 [org.cinnamon.desktop.screensaver]
-font-date='Clear Sans 24'
-font-message='Clear Sans 14'
-font-time='Clear Sans 64'
+font-date='IBM Plex Sans 24'
+font-message='IBM Plex Sans 14'
+font-time='IBM Plex Sans 64'
 
 [org.cinnamon]
 #app-menu-icon-name='Rolls-Logo'
 app-menu-label=' '
 [org.cinnamon.desktop.wm.preferences]
-titlebar-font='Clear Sans Bold 10'
+titlebar-font='IBM Plex Sans Bold 10'
 
 [org.x.editor.preferences.editor]
 editor-font='IntoneMono NF 12'
 
 [org.cinnamon.theme]
-name='Otis-forest-standard-buttons'
+name='rose-pine-dawn-gtk'
 
 [org.x.apps.portal]
 color-scheme='prefer-dark'
@@ -32,17 +32,17 @@ picture-uri='file:///usr/share/backgrounds/default_back_dark.jpg'
 
 [org.gnome.desktop.interface]
 monospace-font-name='IntoneMono NF 12'
-document-font-name='Clear Sans 11'
+document-font-name='IBM Plex Sans 11'
 cursor-theme='Bibata-Modern-Ice'
 icon-theme='Colloid-dark'
 
 [org.nemo.desktop]
-font='Clear Sans 10'
+font='IBM Plex Sans 10'
 
 [x.dm.slick-greeter]
 background='/usr/share/backgrounds/default_back_dark.jpg'
-font-name='Clear Sans 11'
-theme-name='Otis-forest-standard-buttons'
+font-name='IBM Plex Sans 11'
+theme-name='rose-pine-dawn-gtk'
 logo='/usr/share/icons/Celestite-Logo/stock/48x48/Celestite-48.png'
 cursor-theme-name='Bibata-Modern-Ice'
 icon-theme-name='Colloid-dark'

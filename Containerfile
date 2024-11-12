@@ -1,7 +1,7 @@
 ARG SOURCE_IMAGE="base"
 ARG SOURCE_SUFFIX="-main"
-ARG SOURCE_TAG="40"
-ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
+ARG SOURCE_TAG="41"
+ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-41}"
 
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as celestite
 
@@ -35,7 +35,7 @@ RUN rpm-ostree cliwrap install-to-root / && \
     mkdir -p /usr/etc/flatpak/remotes.d && \
     curl -Lo /usr/etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo && \
     fc-cache -fv && \
-    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Celestite Kyoto"/' /usr/lib/os-release && \
+    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Celestite Yeosu"/' /usr/lib/os-release && \
     IMAGE_FLAVOR="" /tmp/initramfs.sh && \
     rm -rf /tmp/* /var/* && \
     ostree container commit && \

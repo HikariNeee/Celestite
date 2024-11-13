@@ -4,6 +4,7 @@ set -ouex pipefail
 
 # Remove nvidia specific files
 if [[ "${IMAGE_FLAVOR}" =~ "nvidia" ]]; then
+  systemctl enable nvidia-sleep nvidia-hibernate nvidia-resume
   :
 else
   rm /usr/lib/dracut/dracut.conf.d/95-nvidia.conf

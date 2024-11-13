@@ -5,14 +5,12 @@ on:
     branches:
       - main
       - testing
-      - f41
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
       - testing
-      - f41
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
@@ -55,14 +53,14 @@ jobs:
           for TAG in "${BUILD_TAGS[@]}"; do
               BUILD_TAGS+=("${TAG}-${TIMESTAMP}")
           done
-
-          BUILD_TAGS+=("${TIMESTAMP}")
-           if [[ ${{ github.ref_name }} == "testing" ]]; then
-            # Per fedora version
-            BUILD_TAGS+=("testing")
-      
+           
+          if [[ "${{ github.ref_name }}" == "testing" ]]; then
+              echo "Setting up testing branch builds..."
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("testing")
           else
-             BUILD_TAGS+=("latest")
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("latest")
           fi
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
@@ -158,3 +156,6 @@ jobs:
           TAGS: ${{ steps.push.outputs.digest }}
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+
+
+

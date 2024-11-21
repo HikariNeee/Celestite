@@ -1,10 +1,16 @@
 ---
 name: celestite-nvidia
 on:
-  workflow_run:
-    workflows: ["celestite"]
-    types:
-      - completed
+  schedule:
+    - cron: "40 4 * * 1" # 4:40 utc monday
+  pull_request:
+    branches:
+      - testing
+      - main
+  push:
+    branches:
+      - testing
+      - main
   workflow_dispatch:
 
 env:
@@ -45,9 +51,15 @@ jobs:
           for TAG in "${BUILD_TAGS[@]}"; do
               BUILD_TAGS+=("${TAG}-${TIMESTAMP}")
           done
-
-          BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
+          
+          if [[ "${{ github.ref_name }}" == "testing" ]]; then
+              echo "Setting up testing branch builds..."
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("testing")
+          else
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("latest")
+          fi
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
@@ -66,10 +78,6 @@ jobs:
           done
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
-
-
-      - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@v7
 
       # Build metadata
       - name: Image Metadata

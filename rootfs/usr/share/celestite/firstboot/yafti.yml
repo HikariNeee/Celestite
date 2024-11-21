@@ -10,7 +10,7 @@ screens:
       title: "Welcome to Celestite!"
       icon: "/path/to/icon"
       description: |
-        Welcome to Celestite Kyoto! The sweetest distro around! Let's get you started by picking some applications!
+        Welcome to Celestite Yeosu! The sweetest distro around! Let's get you started by picking some applications!
 
   can-we-modify-your-flatpaks:
     source: yafti.screen.consent

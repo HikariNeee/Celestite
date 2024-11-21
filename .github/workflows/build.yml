@@ -4,11 +4,13 @@ on:
   pull_request:
     branches:
       - main
+      - testing
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
+      - testing
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
@@ -51,9 +53,15 @@ jobs:
           for TAG in "${BUILD_TAGS[@]}"; do
               BUILD_TAGS+=("${TAG}-${TIMESTAMP}")
           done
-
-          BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
+           
+          if [[ "${{ github.ref_name }}" == "testing" ]]; then
+              echo "Setting up testing branch builds..."
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("testing")
+          else
+              BUILD_TAGS+=("${TIMESTAMP}")
+              BUILD_TAGS+=("latest")
+          fi
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "

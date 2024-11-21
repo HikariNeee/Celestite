@@ -1,6 +1,6 @@
 ARG SOURCE_IMAGE="base"
 ARG SOURCE_SUFFIX="-nvidia"
-ARG SOURCE_TAG="40"
+ARG SOURCE_TAG="41"
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG} as celestite-nvidia
 
 COPY rootfs/ /
@@ -11,7 +11,7 @@ COPY scripts/02-misc.sh /tmp/02-misc.sh
 COPY scripts/03-cinnamon.sh /tmp/03-cinnamon.sh
 COPY scripts/04-enable-services.sh /tmp/04-enable-services.sh
 
-COPY --from=ghcr.io/ublue-os/akmods-nvidia:fsync-40 /rpms /tmp/akmods-rpms
+COPY --from=ghcr.io/ublue-os/akmods-nvidia-open:bazzite-41 /rpms /tmp/akmods-rpms
 
 # test schemas
 RUN mkdir -p /tmp/test && \
@@ -36,7 +36,7 @@ RUN rpm-ostree cliwrap install-to-root / && \
     fc-cache -fv && \
     mkdir -p /usr/etc/flatpak/remotes.d && \
     curl -Lo /usr/etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo && \
-    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Celestite Kyoto"/' /usr/lib/os-release && \
+    sed -i '/^PRETTY_NAME/s/.*/PRETTY_NAME="Celestite Yeosu"/' /usr/lib/os-release && \
     IMAGE_FLAVOR=nvidia /tmp/build/initramfs.sh && \
     ostree container commit && \
     mkdir -p /var/tmp && \
